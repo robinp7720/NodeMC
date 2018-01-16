@@ -20,7 +20,7 @@ var buildtools = {};
  * @param cb Run when downloaded
  */
 buildtools.download = function(cwd,filename,cb) {
-  request('https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar', cb).on('response', (res) => res.pipe(fs.createWriteStream(cwd+filename))).on('error', (err) => Console.error("There Was An Error Downloading Build Tools:", err))
+  request("https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar", cb).on("response", (res) => res.pipe(fs.createWriteStream(cwd+filename))).on("error", (err) => Console.error("There Was An Error Downloading Build Tools:", err));
 };
 
 /**
