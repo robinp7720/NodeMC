@@ -1,4 +1,5 @@
 var events = require('events');
+var path = require('path');
 
 var spawn = require('child_process').spawn;
 
@@ -29,10 +30,10 @@ server.start = function(cb) {
             '-jar', server.FileName,
             '--world-dir', server.worldsDir,
             '--plugins', server.pluginsDir,
-            '--bukkit-settings', server.configDirectory + "bukkit.yml",
-            '--commands-settings', server.configDirectory + "commands.yml",
-            '--config', server.configDirectory + "config.yml",
-            '--spigot-settings', server.configDirectory + "spigot.yml"
+            '--bukkit-settings', server.configDirectory + path.sep + "bukkit.yml",
+            '--commands-settings', server.configDirectory + path.sep + "commands.yml",
+            '--config', server.configDirectory + path.sep + "config.yml",
+            '--spigot-settings', server.configDirectory + path.sep + "spigot.yml"
         ], {
             cwd: server.path
         });
